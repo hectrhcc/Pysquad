@@ -79,7 +79,7 @@ export const events: Event[] = [
     title: "PySquad Meetup #4: El Futuro del Desarrollo Web con AI",
     description:
       "Exploraremos cómo la inteligencia artificial está transformando el desarrollo web: desde Copilots hasta agentes autónomos que escriben código. Una sesión técnica + debate abierto.",
-    date: "2025-07-18",
+    date: "2027-07-18",
     time: "18:00",
     location: "Hub de Innovación Tecnológica — Sala Principal",
     speaker: "Héctor Contreras",
@@ -95,7 +95,7 @@ export const events: Event[] = [
     title: "PySquad Meetup #3: DevOps para Desarrolladores",
     description:
       "Una sesión práctica sobre cómo integrar prácticas DevOps en el día a día del desarrollo. CI/CD, contenedores y automatización desde cero.",
-    date: "2025-04-10",
+    date: "2027-04-10",
     time: "18:30",
     location: "Coworking Space Central",
     speaker: "Emerson Terrazas",
@@ -110,7 +110,7 @@ export const events: Event[] = [
     title: "PySquad Meetup #2: Flutter desde Cero hasta Producción",
     description:
       "Recorrido completo del ecosistema Flutter: configuración, state management con Riverpod y despliegue en Play Store y App Store.",
-    date: "2025-02-20",
+    date: "2027-02-20",
     time: "18:00",
     location: "Universidad Tecnológica — Aula 301",
     speaker: "Alvaro Marquez",
@@ -125,7 +125,7 @@ export const events: Event[] = [
     title: "PySquad Kickoff: ¡Bienvenidos a la Comunidad!",
     description:
       "El evento fundacional de PySquad. Presentamos la visión de la comunidad, conocimos a los primeros miembros y establecimos la cultura de compartir y aprender juntos.",
-    date: "2024-11-08",
+    date: "2027-11-08",
     time: "19:00",
     location: "Café Tech Hub",
     speaker: "Mario Guerrero & Jose Acevedo",
@@ -139,7 +139,7 @@ export const events: Event[] = [
     title: "Workshop: APIs con FastAPI y PostgreSQL",
     description:
       "Taller hands-on para construir una API REST production-ready con Python, FastAPI, SQLAlchemy y PostgreSQL. Incluye autenticación JWT.",
-    date: "2025-01-15",
+    date: "2027-01-15",
     time: "09:00",
     location: "Online (Google Meet)",
     speaker: "Jose Acevedo",
