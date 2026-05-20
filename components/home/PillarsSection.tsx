@@ -55,7 +55,7 @@ export default function PillarsSection() {
   return (
     <section 
       className="py-24 px-4 sm:px-6 lg:px-8 bg-[#0d1117]"
-      style={{ width: '100%', display: 'flex', justifyContent: 'center' }}
+      style={{ width: '100%', display: 'flex', justifyContent: 'center', paddingTop: '160px' }}
     >
       <div className="w-full max-w-7xl" style={{ margin: '0 auto' }}>
         {/* Encabezado */}
@@ -72,8 +72,8 @@ export default function PillarsSection() {
             <span className="text-gradient">un ecosistema</span>
           </h2>
           <p 
-            className="mx-auto max-w-2xl text-[#94a3b8]"
-            style={{ marginTop: '32px', marginBottom: '64px' }}
+            className="mx-auto max-w-2xl text-[#94a3b8] text-center"
+            style={{ marginTop: '32px', marginBottom: '64px', textAlign: 'center' }}
           >
             PySquad nació con el espíritu de los GDG — una agrupación independiente donde la pasión por la tecnología es el único requisito de entrada.
           </p>

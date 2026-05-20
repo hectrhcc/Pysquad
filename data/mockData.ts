@@ -25,7 +25,7 @@ export const members: Member[] = [
   {
     id: "member-002",
     name: "Jose Acevedo",
-    role: "Ingeniero Electrónico",
+    role: "Arduino Developer",
     bio: "Especialista en hardware, programación de microcontroladores (Arduino) y proyectos de la Internet de las Cosas (IoT).",
     avatar: "/avatars/jose.jpg",
     technologies: ["Arduino", "IoT", "Electrónica"],
@@ -53,7 +53,7 @@ export const members: Member[] = [
   {
     id: "member-005",
     name: "Juan Aguirre",
-    role: "Ingeniero en Mecánica",
+    role: "Blender Developer",
     bio: "Experto en diseño paramétrico, modelado 3D y renderizado utilizando herramientas como Blender.",
     avatar: "/avatars/juan.jpg",
     technologies: ["Blender", "Modelado 3D", "Mecánica"],
