@@ -1,0 +1,192 @@
+/**
+ * @file app/globals.css
+ * @description Sistema de diseño global de PySquad.
+ * Paleta cyber-tech: fondo oscuro + violeta eléctrico + cyan.
+ */
+
+@import "tailwindcss";
+
+/* ─── Design Tokens ─────────────────────────────────────────────────────────── */
+:root {
+  /* Fondos */
+  --bg-base: #080b14;
+  --bg-surface: #0d1117;
+  --bg-elevated: #161b27;
+  --bg-card: #1a2035;
+
+  /* Acentos primarios */
+  --accent-violet: #7c3aed;
+  --accent-violet-light: #a78bfa;
+  --accent-cyan: #06b6d4;
+  --accent-cyan-light: #67e8f9;
+
+  /* Texto */
+  --text-primary: #f0f4ff;
+  --text-secondary: #94a3b8;
+  --text-muted: #475569;
+
+  /* Bordes */
+  --border-subtle: #1e293b;
+  --border-glow: rgba(124, 58, 237, 0.4);
+
+  /* Gradientes */
+  --gradient-brand: linear-gradient(135deg, #7c3aed, #06b6d4);
+  --gradient-dark: linear-gradient(180deg, #080b14, #0d1117);
+  --gradient-card: linear-gradient(135deg, #1a2035, #161b27);
+
+  /* Sombras */
+  --shadow-glow-violet: 0 0 30px rgba(124, 58, 237, 0.25);
+  --shadow-glow-cyan: 0 0 30px rgba(6, 182, 212, 0.25);
+  --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.4);
+}
+
+@theme inline {
+  --color-background: var(--bg-base);
+  --color-foreground: var(--text-primary);
+}
+
+/* ─── Reset & Base ──────────────────────────────────────────────────────────── */
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background-color: var(--bg-base);
+  color: var(--text-primary);
+  font-family: var(--font-inter), "Inter", system-ui, sans-serif;
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+/* ─── Scrollbar personalizada ──────────────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-surface);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--accent-violet);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-violet-light);
+}
+
+/* ─── Selección de texto ────────────────────────────────────────────────────── */
+::selection {
+  background: rgba(124, 58, 237, 0.35);
+  color: var(--text-primary);
+}
+
+/* ─── Foco accesible ────────────────────────────────────────────────────────── */
+:focus-visible {
+  outline: 2px solid var(--accent-violet-light);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* ─── Grid pattern background (usado en Hero) ─────────────────────────────── */
+.bg-grid-pattern {
+  background-image:
+    linear-gradient(rgba(124, 58, 237, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(124, 58, 237, 0.06) 1px, transparent 1px);
+  background-size: 50px 50px;
+}
+
+/* ─── Texto gradiente ───────────────────────────────────────────────────────── */
+.text-gradient {
+  background: var(--gradient-brand);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ─── Glow effect ───────────────────────────────────────────────────────────── */
+.glow-violet {
+  box-shadow: var(--shadow-glow-violet);
+}
+.glow-cyan {
+  box-shadow: var(--shadow-glow-cyan);
+}
+
+/* ─── Glassmorphism card ────────────────────────────────────────────────────── */
+.glass-card {
+  background: rgba(26, 32, 53, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(124, 58, 237, 0.15);
+}
+
+/* ─── Animated gradient border ─────────────────────────────────────────────── */
+@keyframes border-spin {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.animated-border {
+  background: linear-gradient(270deg, #7c3aed, #06b6d4, #7c3aed);
+  background-size: 300% 300%;
+  animation: border-spin 4s ease infinite;
+}
+
+/* ─── Fade-in animation ─────────────────────────────────────────────────────── */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s ease forwards;
+}
+
+.animation-delay-100 { animation-delay: 0.1s; opacity: 0; }
+.animation-delay-200 { animation-delay: 0.2s; opacity: 0; }
+.animation-delay-300 { animation-delay: 0.3s; opacity: 0; }
+.animation-delay-400 { animation-delay: 0.4s; opacity: 0; }
+
+/* ─── Pulse glow ────────────────────────────────────────────────────────────── */
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 20px rgba(124, 58, 237, 0.3); }
+  50% { box-shadow: 0 0 40px rgba(124, 58, 237, 0.6), 0 0 60px rgba(6, 182, 212, 0.3); }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 3s ease-in-out infinite;
+}
+
+/* ─── Tag colors (tecnologías) ──────────────────────────────────────────────── */
+.tag-violet {
+  background: rgba(124, 58, 237, 0.15);
+  color: var(--accent-violet-light);
+  border: 1px solid rgba(124, 58, 237, 0.3);
+}
+.tag-cyan {
+  background: rgba(6, 182, 212, 0.12);
+  color: var(--accent-cyan-light);
+  border: 1px solid rgba(6, 182, 212, 0.25);
+}
+.tag-green {
+  background: rgba(34, 197, 94, 0.12);
+  color: #86efac;
+  border: 1px solid rgba(34, 197, 94, 0.25);
+}
+.tag-orange {
+  background: rgba(249, 115, 22, 0.12);
+  color: #fdba74;
+  border: 1px solid rgba(249, 115, 22, 0.25);
+}
+.tag-pink {
+  background: rgba(236, 72, 153, 0.12);
+  color: #f9a8d4;
+  border: 1px solid rgba(236, 72, 153, 0.25);
+}
