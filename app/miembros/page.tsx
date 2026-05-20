@@ -46,7 +46,7 @@ export default function MiembrosPage() {
             Conoce la{" "}
             <span className="text-gradient">comunidad</span>
           </h1>
-          <p className="mx-auto max-w-xl text-[#94a3b8]">
+          <p className="mx-auto max-w-xl text-[#94a3b8] text-center" style={{ textAlign: 'center' }}>
             Personas apasionadas por la tecnología que comparten, aprenden y
             construyen juntos. Cada perfil es una historia diferente.
           </p>

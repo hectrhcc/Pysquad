@@ -55,7 +55,7 @@ export default function PillarsSection() {
   return (
     <section 
       className="py-24 px-4 sm:px-6 lg:px-8 bg-[#0d1117]"
-      style={{ width: '100%', display: 'flex', justifyContent: 'center', paddingTop: '160px' }}
+      style={{ width: '100%', display: 'flex', justifyContent: 'center', paddingTop: '80px' }}
     >
       <div className="w-full max-w-7xl" style={{ margin: '0 auto' }}>
         {/* Encabezado */}

@@ -53,7 +53,7 @@ export default function Footer() {
                 className="text-lg font-bold tracking-tight"
                 style={{ fontFamily: "var(--font-space-grotesk)" }}
               >
-                <span className="text-gradient">Py</span>
+                <span className="text-blue-500">Py</span>
                 <span className="text-[#f0f4ff]">Squad</span>
               </span>
             </div>

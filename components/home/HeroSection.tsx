@@ -41,7 +41,8 @@ export default function HeroSection() {
           className="animate-fade-in-up animation-delay-100 mb-6 font-extrabold tracking-tight leading-[1.1]"
           style={{ fontFamily: "var(--font-space-grotesk)" }}
         >
-          <span className="text-gradient text-6xl sm:text-7xl lg:text-8xl">PySquad</span>
+          <span className="text-blue-500 text-6xl sm:text-7xl lg:text-8xl">Py</span>
+          <span className="text-white text-6xl sm:text-7xl lg:text-8xl">Squad</span>
           <br />
           <span className="text-[#f0f4ff] text-2xl sm:text-3xl lg:text-4xl">Promoviendo la experimentación y el</span>
           <br />
