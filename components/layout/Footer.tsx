@@ -9,7 +9,7 @@ import { GitBranch, Link2, MessageCircle, Zap, Heart } from "lucide-react";
 // ─── Links sociales ───────────────────────────────────────────────────────────
 const socialLinks = [
   {
-    href: "#",
+    href: "https://github.com/hectrhcc/Pysquad",
     label: "GitHub",
     icon: GitBranch,
     id: "footer-github",
