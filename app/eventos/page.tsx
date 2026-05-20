@@ -61,7 +61,7 @@ export default function EventosPage() {
                 className="text-xl font-bold text-[#f0f4ff]"
                 style={{ fontFamily: "var(--font-space-grotesk)" }}
               >
-                Eventos Pasados
+                Eventos Futuros
               </h2>
               <span className="inline-flex items-center rounded-full border border-[#1e293b] bg-[#1a2035] px-2.5 py-0.5 text-xs font-medium text-[#94a3b8]">
                 {pastEvents.length}
