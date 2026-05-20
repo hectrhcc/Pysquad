@@ -5,40 +5,7 @@
  */
 
 // ─── Tecnologías disponibles ─────────────────────────────────────────────────
-export type TechTag =
-  | "React"
-  | "Next.js"
-  | "TypeScript"
-  | "Python"
-  | "Flutter"
-  | "Firebase"
-  | "Dart"
-  | "Node.js"
-  | "FastAPI"
-  | "Django"
-  | "Go"
-  | "Rust"
-  | "Docker"
-  | "Kubernetes"
-  | "AWS"
-  | "GCP"
-  | "Azure"
-  | "DevOps"
-  | "Machine Learning"
-  | "AI"
-  | "TensorFlow"
-  | "PyTorch"
-  | "UI/UX"
-  | "Figma"
-  | "Vue"
-  | "Angular"
-  | "PostgreSQL"
-  | "MongoDB"
-  | "Redis"
-  | "GraphQL"
-  | "REST API"
-  | "Data Science"
-  | "Cloud";
+export type TechTag = string;
 
 // ─── Categorías de eventos ────────────────────────────────────────────────────
 export type EventCategory =
