@@ -100,14 +100,16 @@ export default function Footer() {
                 </Link>
               ))}
             </div>
-            <p className="text-xs text-[#475569]">
+            <p className="text-sm text-slate-400">
               ¿Quieres contribuir? El proyecto es Open Source.{" "}
-              <Link
-                href="#"
-                className="text-[#94a3b8] hover:text-[#a78bfa] underline transition-colors"
+              <a
+                href="https://github.com/hectrhcc/Pysquad"
+                target="_blank"
+                rel="noreferrer"
+                className="text-[#a78bfa] hover:text-[#c4b5fd] hover:underline"
               >
                 Ver en GitHub →
-              </Link>
+              </a>
             </p>
           </div>
         </div>

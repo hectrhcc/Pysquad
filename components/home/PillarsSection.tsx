@@ -71,10 +71,11 @@ export default function PillarsSection() {
             <br />
             <span className="text-gradient">un ecosistema</span>
           </h2>
-          <p className="mx-auto mt-4 max-w-2xl text-[#94a3b8]">
-            PySquad nació con el espíritu de los GDG — una agrupación
-            independiente donde la pasión por la tecnología es el único
-            requisito de entrada.
+          <p 
+            className="mx-auto max-w-2xl text-[#94a3b8]"
+            style={{ marginTop: '32px', marginBottom: '64px' }}
+          >
+            PySquad nació con el espíritu de los GDG — una agrupación independiente donde la pasión por la tecnología es el único requisito de entrada.
           </p>
         </div>
 
@@ -96,6 +97,7 @@ export default function PillarsSection() {
                 key={id}
                 id={id}
                 className={`group relative overflow-hidden rounded-2xl border border-[#1e293b] bg-gradient-to-br ${gradient} p-8 transition-all duration-300 ${borderHover} ${glowHover} cursor-default`}
+                style={{ padding: '2.5rem' }}
               >
                 {/* Decorative corner */}
                 <div className="absolute top-0 right-0 w-24 h-24 opacity-10 bg-gradient-to-br from-white to-transparent rounded-bl-full" />

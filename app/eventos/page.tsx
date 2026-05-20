@@ -29,7 +29,7 @@ export default function EventosPage() {
   const upcomingEvent = getUpcomingEvent();
 
   return (
-    <div className="min-h-screen pb-16" style={{ paddingTop: '160px' }}>
+    <div className="min-h-screen pb-16" style={{ paddingTop: '100px' }}>
       {/* Hero de la sección */}
       <div className="relative overflow-hidden bg-gradient-to-b from-cyan-500/5 to-transparent border-b border-[#1e293b]">
         <div className="absolute inset-0 bg-grid-pattern opacity-50" aria-hidden="true" />

@@ -43,7 +43,7 @@ export default function FeaturedEvent() {
   return (
     <section 
       className="py-24 px-4 sm:px-6 lg:px-8 mb-12"
-      style={{ width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', position: 'relative', marginTop: '120px', backgroundColor: '#080b14', clear: 'both', zIndex: 10 }}
+      style={{ width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', position: 'relative', marginTop: '120px', paddingBottom: '120px', backgroundColor: '#080b14', clear: 'both', zIndex: 10 }}
     >
       <div className="w-full max-w-5xl" style={{ margin: '0 auto' }}>
         {/* Encabezado */}
