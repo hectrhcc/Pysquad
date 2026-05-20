@@ -40,8 +40,8 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="border-t border-[#1e293b] bg-[#0d1117]">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20" style={{ paddingTop: '80px', paddingBottom: '80px' }}>
+    <footer className="border-t border-[#1e293b] bg-[#0d1117]" style={{ display: 'flex', justifyContent: 'center', width: '100%' }}>
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20" style={{ paddingTop: '80px', paddingBottom: '80px', margin: '0 auto', width: '100%', maxWidth: '1280px' }}>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-16" style={{ gap: '64px' }}>
           {/* Branding */}
           <div className="space-y-4">

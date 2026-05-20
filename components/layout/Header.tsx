@@ -44,8 +44,9 @@ export default function Header() {
           ? "bg-[#080b14]/90 backdrop-blur-md border-b border-[#1e293b] shadow-[0_4px_30px_rgba(0,0,0,0.4)]"
           : "bg-transparent"
       )}
+      style={{ display: 'flex', justifyContent: 'center', width: '100%' }}
     >
-      <nav className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <nav className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8" style={{ margin: '0 auto', width: '100%', maxWidth: '1280px' }}>
         <div className="flex h-16 items-center justify-between">
           {/* Logo */}
           <Link

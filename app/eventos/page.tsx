@@ -33,7 +33,7 @@ export default function EventosPage() {
       {/* Hero de la sección */}
       <div className="relative overflow-hidden bg-gradient-to-b from-cyan-500/5 to-transparent border-b border-[#1e293b]">
         <div className="absolute inset-0 bg-grid-pattern opacity-50" aria-hidden="true" />
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 relative z-10 text-center">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 relative z-10 text-center" style={{ margin: '0 auto', width: '100%', maxWidth: '1280px' }}>
           <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-cyan-500/30 bg-cyan-500/10 px-4 py-1.5 text-sm text-[#67e8f9]">
             <CalendarDays className="h-3.5 w-3.5" />
             Historial de Eventos
@@ -52,7 +52,7 @@ export default function EventosPage() {
         </div>
       </div>
 
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 mt-12">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 mt-12" style={{ margin: '0 auto', width: '100%', maxWidth: '1280px' }}>
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
           {/* Timeline principal */}
           <div className="lg:col-span-2">

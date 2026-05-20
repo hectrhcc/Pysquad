@@ -34,7 +34,7 @@ export default function MiembrosPage() {
       {/* Hero de la sección */}
       <div className="relative overflow-hidden bg-gradient-to-b from-violet-500/5 to-transparent border-b border-[#1e293b]">
         <div className="absolute inset-0 bg-grid-pattern opacity-50" aria-hidden="true" />
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 relative z-10 text-center">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 relative z-10 text-center" style={{ margin: '0 auto', width: '100%', maxWidth: '1280px' }}>
           <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-violet-500/30 bg-violet-500/10 px-4 py-1.5 text-sm text-[#a78bfa]">
             <Users className="h-3.5 w-3.5" />
             Directorio de Miembros
@@ -54,7 +54,7 @@ export default function MiembrosPage() {
       </div>
 
       {/* Contenido principal */}
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 mt-10">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 mt-10" style={{ margin: '0 auto', width: '100%', maxWidth: '1280px' }}>
         {/* Barra de búsqueda */}
         <div className="mb-8 max-w-xl">
           <MemberFilter
