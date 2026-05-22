@@ -13,8 +13,14 @@ interface Snake {
   dx: number;
   dy: number;
   segments: Segment[];
-  color: string;
+  turnTimer: number;
 }
+
+const SNAKE_COLOR = "#33ff33";
+const GRID_SIZE = 20;
+const MAX_SEGMENTS = 50;
+const MOVE_INTERVAL = 3; // frames entre cada movimiento
+const TURN_INTERVAL = 12; // frames base entre cambios de dirección
 
 export default function SnakeGame() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -30,70 +36,144 @@ export default function SnakeGame() {
     canvas.height = window.innerHeight;
 
     let animationId: number;
+    let frameCount = 0;
 
-    // Múltiples snakes moviéndose en línea recta, estilo Nokia 97
+    // Alinear posiciones iniciales a la cuadrícula
+    const snapToGrid = (v: number) => Math.round(v / GRID_SIZE) * GRID_SIZE;
+
+    // Múltiples serpientes con movimiento rectilíneo tipo Snake 97
     const snakes: Snake[] = [
-      { x: 100, y: 200, dx: 1, dy: 0, segments: [], color: "#a78bfa" },
-      { x: canvas.width - 100, y: 400, dx: -1, dy: 0, segments: [], color: "#60a5fa" },
-      { x: 300, y: 100, dx: 0, dy: 1, segments: [], color: "#22c55e" },
-      { x: canvas.width - 300, y: canvas.height - 100, dx: 0, dy: -1, segments: [], color: "#f97316" },
+      { x: snapToGrid(100), y: snapToGrid(200), dx: GRID_SIZE, dy: 0, segments: [], turnTimer: 0 },
+      { x: snapToGrid(canvas.width - 100), y: snapToGrid(400), dx: -GRID_SIZE, dy: 0, segments: [], turnTimer: 0 },
+      { x: snapToGrid(300), y: snapToGrid(100), dx: 0, dy: GRID_SIZE, segments: [], turnTimer: 0 },
+      { x: snapToGrid(canvas.width - 300), y: snapToGrid(canvas.height - 100), dx: 0, dy: -GRID_SIZE, segments: [], turnTimer: 0 },
     ];
 
+    const changeDirection = (snake: Snake) => {
+      const directions = [
+        { dx: GRID_SIZE, dy: 0 },
+        { dx: -GRID_SIZE, dy: 0 },
+        { dx: 0, dy: GRID_SIZE },
+        { dx: 0, dy: -GRID_SIZE },
+      ];
+      // Evitar que retroceda sobre sí misma
+      const available = directions.filter(
+        (d) => !(d.dx === -snake.dx && d.dy === -snake.dy)
+      );
+      const next = available[Math.floor(Math.random() * available.length)];
+      snake.dx = next.dx;
+      snake.dy = next.dy;
+      snake.turnTimer = 0;
+    };
+
     const animate = () => {
-      ctx.fillStyle = "rgba(15, 23, 42, 0)";
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
+      frameCount++;
+
       snakes.forEach((snake) => {
-        // Mover la serpiente
-        snake.x += snake.dx * 2;
-        snake.y += snake.dy * 2;
-
-        // Wraparound
-        if (snake.x < -50) snake.x = canvas.width + 50;
-        if (snake.x > canvas.width + 50) snake.x = -50;
-        if (snake.y < -50) snake.y = canvas.height + 50;
-        if (snake.y > canvas.height + 50) snake.y = -50;
-
-        // Agregar segmento
-        snake.segments.push({ x: snake.x, y: snake.y });
-        if (snake.segments.length > 40) {
-          snake.segments.shift();
-        }
-
-        // Dibujar la serpiente
-        ctx.strokeStyle = snake.color;
-        ctx.globalAlpha = 0.6;
-        ctx.lineWidth = 3;
-        ctx.lineCap = "round";
-        ctx.lineJoin = "round";
-
-        ctx.beginPath();
-        snake.segments.forEach((segment, idx) => {
-          if (idx === 0) {
-            ctx.moveTo(segment.x, segment.y);
-          } else {
-            ctx.lineTo(segment.x, segment.y);
+        // Movimiento discreto: avanza un paso de cuadrícula cada MOVE_INTERVAL frames
+        if (frameCount % MOVE_INTERVAL === 0) {
+          // Cambiar dirección aleatoriamente (zigzag rectilíneo)
+          snake.turnTimer++;
+          if (snake.turnTimer >= TURN_INTERVAL + Math.floor(Math.random() * 8)) {
+            changeDirection(snake);
           }
-        });
-        ctx.stroke();
 
-        // Cabeza con punto brillante
-        if (snake.segments.length > 0) {
-          const head = snake.segments[snake.segments.length - 1];
-          ctx.globalAlpha = 0.9;
-          ctx.fillStyle = snake.color;
-          ctx.beginPath();
-          ctx.arc(head.x, head.y, 6, 0, Math.PI * 2);
-          ctx.fill();
+          // Avanzar un paso en la cuadrícula
+          snake.x += snake.dx;
+          snake.y += snake.dy;
 
-          // Brillo
-          ctx.globalAlpha = 0.3;
-          ctx.beginPath();
-          ctx.arc(head.x, head.y, 10, 0, Math.PI * 2);
-          ctx.fill();
+          // Wraparound con margen
+          const margin = GRID_SIZE * 2;
+          if (snake.x < -margin) snake.x = canvas.width + margin;
+          if (snake.x > canvas.width + margin) snake.x = -margin;
+          if (snake.y < -margin) snake.y = canvas.height + margin;
+          if (snake.y > canvas.height + margin) snake.y = -margin;
+
+          // Agregar segmento en la nueva posición
+          snake.segments.push({ x: snake.x, y: snake.y });
+          if (snake.segments.length > MAX_SEGMENTS) {
+            snake.segments.shift();
+          }
         }
 
-        ctx.globalAlpha = 1;
+        // Dibujar la serpiente (estilo bloque retro)
+        if (snake.segments.length === 0) return;
+
+        // Cuerpo — solo dibujar si hay al menos 2 segmentos
+        if (snake.segments.length >= 2) {
+          // Sombra / glow exterior
+          ctx.save();
+          ctx.strokeStyle = SNAKE_COLOR;
+          ctx.globalAlpha = 0.15;
+          ctx.lineWidth = GRID_SIZE;
+          ctx.lineCap = "square";
+          ctx.lineJoin = "miter";
+          ctx.beginPath();
+          snake.segments.forEach((seg, idx) => {
+            if (idx === 0) ctx.moveTo(seg.x, seg.y);
+            else ctx.lineTo(seg.x, seg.y);
+          });
+          ctx.stroke();
+          ctx.restore();
+
+          // Cuerpo principal (bloques conectados)
+          ctx.save();
+          ctx.strokeStyle = SNAKE_COLOR;
+          ctx.globalAlpha = 0.6;
+          ctx.lineWidth = GRID_SIZE - 4;
+          ctx.lineCap = "square";
+          ctx.lineJoin = "miter";
+          ctx.beginPath();
+          snake.segments.forEach((seg, idx) => {
+            if (idx === 0) ctx.moveTo(seg.x, seg.y);
+            else ctx.lineTo(seg.x, seg.y);
+          });
+          ctx.stroke();
+          ctx.restore();
+        }
+
+        // Cabeza (cuadrada, más brillante)
+        const head = snake.segments[snake.segments.length - 1];
+
+        // Cabeza - bloque sólido
+        ctx.save();
+        ctx.fillStyle = SNAKE_COLOR;
+        ctx.globalAlpha = 0.85;
+        const halfG = GRID_SIZE / 2;
+        ctx.fillRect(
+          head.x - halfG + 2,
+          head.y - halfG + 2,
+          GRID_SIZE - 4,
+          GRID_SIZE - 4
+        );
+        ctx.restore();
+
+        // Ojos de la serpiente (píxel art)
+        ctx.save();
+        ctx.fillStyle = "#0a0a0a";
+        ctx.globalAlpha = 0.9;
+        const eyeOffset = 4;
+        const eyeSize = 3;
+        // Posicionar ojos según dirección
+        let ex1 = head.x, ey1 = head.y, ex2 = head.x, ey2 = head.y;
+        if (snake.dx === GRID_SIZE) {
+          ex1 = head.x + eyeOffset; ey1 = head.y - eyeOffset;
+          ex2 = head.x + eyeOffset; ey2 = head.y + eyeOffset;
+        } else if (snake.dx === -GRID_SIZE) {
+          ex1 = head.x - eyeOffset; ey1 = head.y - eyeOffset;
+          ex2 = head.x - eyeOffset; ey2 = head.y + eyeOffset;
+        } else if (snake.dy === GRID_SIZE) {
+          ex1 = head.x - eyeOffset; ey1 = head.y + eyeOffset;
+          ex2 = head.x + eyeOffset; ey2 = head.y + eyeOffset;
+        } else {
+          ex1 = head.x - eyeOffset; ey1 = head.y - eyeOffset;
+          ex2 = head.x + eyeOffset; ey2 = head.y - eyeOffset;
+        }
+        ctx.fillRect(ex1 - 1, ey1 - 1, eyeSize, eyeSize);
+        ctx.fillRect(ex2 - 1, ey2 - 1, eyeSize, eyeSize);
+        ctx.restore();
       });
 
       animationId = requestAnimationFrame(animate);
