@@ -18,11 +18,12 @@ export default function SnakeGame() {
     let animationId: number;
     let time = 0;
 
-    // Múltiples snakes moviéndose en diferentes direcciones
+    // Múltiples snakes moviéndose en línea recta, estilo Nokia 97
     const snakes = [
-      { x: 0.2, y: 0.3, dx: 0.0005, dy: 0.0003, offset: 0 },
-      { x: 0.8, y: 0.7, dx: -0.0004, dy: -0.0002, offset: Math.PI },
-      { x: 0.5, y: 0.1, dx: 0.0003, dy: 0.0004, offset: Math.PI / 2 },
+      { x: 100, y: 200, dx: 1, dy: 0, segments: [], color: "rgba(167, 139, 250, 0.6)" },
+      { x: canvas.width - 100, y: 400, dx: -1, dy: 0, segments: [], color: "rgba(96, 165, 250, 0.6)" },
+      { x: 300, y: 100, dx: 0, dy: 1, segments: [], color: "rgba(34, 197, 94, 0.6)" },
+      { x: canvas.width - 300, y: canvas.height - 100, dx: 0, dy: -1, segments: [], color: "rgba(249, 115, 22, 0.6)" },
     ];
 
     const animate = () => {
@@ -32,43 +33,50 @@ export default function SnakeGame() {
       time += 1;
 
       snakes.forEach((snake) => {
-        // Dibujar línea serpentina
-        ctx.strokeStyle = `rgba(167, 139, 250, ${0.3 + Math.sin(time * 0.01) * 0.2})`;
-        ctx.lineWidth = 2;
+        // Mover la serpiente
+        snake.x += snake.dx * 2;
+        snake.y += snake.dy * 2;
+
+        // Wraparound
+        if (snake.x < -50) snake.x = canvas.width + 50;
+        if (snake.x > canvas.width + 50) snake.x = -50;
+        if (snake.y < -50) snake.y = canvas.height + 50;
+        if (snake.y > canvas.height + 50) snake.y = -50;
+
+        // Agregar segmento
+        snake.segments.push({ x: snake.x, y: snake.y });
+        if (snake.segments.length > 40) {
+          snake.segments.shift();
+        }
+
+        // Dibujar la serpiente
+        ctx.strokeStyle = snake.color;
+        ctx.lineWidth = 3;
         ctx.lineCap = "round";
         ctx.lineJoin = "round";
 
-        const centerX = canvas.width * snake.x;
-        const centerY = canvas.height * snake.y;
-
         ctx.beginPath();
-
-        // Crear camino serpentino
-        for (let i = 0; i < 20; i++) {
-          const angle = time * 0.005 + i * 0.3 + snake.offset;
-          const radius = 50 + i * 15;
-          const x = centerX + Math.cos(angle) * radius;
-          const y = centerY + Math.sin(angle) * radius;
-
-          if (i === 0) {
-            ctx.moveTo(x, y);
+        snake.segments.forEach((segment, idx) => {
+          if (idx === 0) {
+            ctx.moveTo(segment.x, segment.y);
           } else {
-            ctx.lineTo(x, y);
+            ctx.lineTo(segment.x, segment.y);
           }
-        }
-
+        });
         ctx.stroke();
 
-        // Puntos brillantes en la línea
-        for (let i = 0; i < 20; i += 3) {
-          const angle = time * 0.005 + i * 0.3 + snake.offset;
-          const radius = 50 + i * 15;
-          const x = centerX + Math.cos(angle) * radius;
-          const y = centerY + Math.sin(angle) * radius;
-
-          ctx.fillStyle = `rgba(96, 165, 250, ${0.4 + Math.sin(time * 0.01 + i) * 0.3})`;
+        // Cabeza con punto brillante
+        if (snake.segments.length > 0) {
+          const head = snake.segments[snake.segments.length - 1];
+          ctx.fillStyle = snake.color.replace("0.6", "0.9");
           ctx.beginPath();
-          ctx.arc(x, y, 3 + Math.sin(time * 0.01) * 2, 0, Math.PI * 2);
+          ctx.arc(head.x, head.y, 6, 0, Math.PI * 2);
+          ctx.fill();
+
+          // Brillo
+          ctx.fillStyle = snake.color.replace("0.6", "0.3");
+          ctx.beginPath();
+          ctx.arc(head.x, head.y, 10, 0, Math.PI * 2);
           ctx.fill();
         }
       });
@@ -94,7 +102,7 @@ export default function SnakeGame() {
   return (
     <canvas
       ref={canvasRef}
-      className="absolute inset-0 pointer-events-none opacity-60"
+      className="absolute inset-0 pointer-events-none opacity-70"
       style={{ mixBlendMode: "screen" }}
     />
   );
