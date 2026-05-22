@@ -9,6 +9,7 @@
 
 import Link from "next/link";
 import { ArrowRight, CalendarDays, Zap } from "lucide-react";
+import SnakeGame from "./SnakeGame";
 
 export default function HeroSection() {
   return (
@@ -55,6 +56,13 @@ export default function HeroSection() {
           Aprendemos juntos, compartimos conocimiento y construimos conexiones
           reales entre profesionales y entusiastas del ecosistema tech.
         </p>
+
+        {/* Snake Game Visual */}
+        <div className="animate-fade-in-up animation-delay-250 mb-12 flex justify-center">
+          <div className="max-w-md w-full">
+            <SnakeGame />
+          </div>
+        </div>
 
         {/* CTAs */}
         <div className="animate-fade-in-up animation-delay-300 flex flex-col sm:flex-row items-center justify-center gap-4">

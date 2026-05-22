@@ -1,120 +1,177 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
-
-interface Point {
-  x: number;
-  y: number;
-}
+import React, { useEffect, useRef } from "react";
 
 export default function SnakeGame() {
-  const GRID_SIZE = 30;
-  const [snakePath, setSnakePath] = useState<Point[]>([]);
+  const canvasRef = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
-    // Generar una ruta serpentina como efecto visual
-    const path: Point[] = [];
-    
-    for (let i = 0; i < GRID_SIZE; i++) {
-      for (let j = 0; j < GRID_SIZE; j++) {
-        // Patrón serpentín: alterna dirección en cada fila
-        if (i % 2 === 0) {
-          path.push({ x: j, y: i });
-        } else {
-          path.push({ x: GRID_SIZE - 1 - j, y: i });
-        }
-      }
-    }
+    const canvas = canvasRef.current;
+    if (!canvas) return;
 
-    setSnakePath(path);
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return;
+
+    // Configuración
+    const gridSize = 20;
+    canvas.width = 400;
+    canvas.height = 300;
+
+    let snake = [
+      { x: 10, y: 7 },
+      { x: 9, y: 7 },
+      { x: 8, y: 7 },
+    ];
+    let direction = { x: 1, y: 0 };
+    let nextDirection = { x: 1, y: 0 };
+    let food = { x: 15, y: 7 };
+    let gameSpeed = 100;
+    let lastTime = 0;
+
+    const generateFood = () => {
+      let newFood;
+      do {
+        newFood = {
+          x: Math.floor(Math.random() * (canvas.width / gridSize)),
+          y: Math.floor(Math.random() * (canvas.height / gridSize)),
+        };
+      } while (snake.some((s) => s.x === newFood.x && s.y === newFood.y));
+      return newFood;
+    };
+
+    const update = (deltaTime: number) => {
+      lastTime += deltaTime;
+      if (lastTime < gameSpeed) return;
+      lastTime = 0;
+
+      direction = nextDirection;
+      const head = snake[0];
+      const newHead = {
+        x: (head.x + direction.x + Math.ceil(canvas.width / gridSize)) % Math.ceil(canvas.width / gridSize),
+        y: (head.y + direction.y + Math.ceil(canvas.height / gridSize)) % Math.ceil(canvas.height / gridSize),
+      };
+
+      // Colisión consigo mismo
+      if (snake.some((s) => s.x === newHead.x && s.y === newHead.y)) {
+        snake = [
+          { x: 10, y: 7 },
+          { x: 9, y: 7 },
+          { x: 8, y: 7 },
+        ];
+        food = { x: 15, y: 7 };
+        direction = { x: 1, y: 0 };
+        nextDirection = { x: 1, y: 0 };
+        return;
+      }
+
+      snake.unshift(newHead);
+
+      // Comida
+      if (newHead.x === food.x && newHead.y === food.y) {
+        food = generateFood();
+        gameSpeed = Math.max(50, gameSpeed - 2);
+      } else {
+        snake.pop();
+      }
+    };
+
+    const draw = () => {
+      ctx.fillStyle = "rgba(15, 23, 42, 0.8)";
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+      // Grid
+      ctx.strokeStyle = "rgba(148, 163, 184, 0.1)";
+      ctx.lineWidth = 0.5;
+      for (let i = 0; i < Math.ceil(canvas.width / gridSize); i++) {
+        ctx.beginPath();
+        ctx.moveTo(i * gridSize, 0);
+        ctx.lineTo(i * gridSize, canvas.height);
+        ctx.stroke();
+      }
+      for (let i = 0; i < Math.ceil(canvas.height / gridSize); i++) {
+        ctx.beginPath();
+        ctx.moveTo(0, i * gridSize);
+        ctx.lineTo(canvas.width, i * gridSize);
+        ctx.stroke();
+      }
+
+      // Snake
+      snake.forEach((segment, idx) => {
+        const gradient = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
+        gradient.addColorStop(0, "#a78bfa");
+        gradient.addColorStop(0.5, "#60a5fa");
+        gradient.addColorStop(1, "#06b6d4");
+        
+        if (idx === 0) {
+          ctx.fillStyle = "#c084fc";
+        } else {
+          ctx.fillStyle = gradient;
+        }
+        ctx.fillRect(
+          segment.x * gridSize + 1,
+          segment.y * gridSize + 1,
+          gridSize - 2,
+          gridSize - 2
+        );
+      });
+
+      // Food
+      ctx.fillStyle = "#ef4444";
+      ctx.beginPath();
+      ctx.arc(
+        food.x * gridSize + gridSize / 2,
+        food.y * gridSize + gridSize / 2,
+        gridSize / 2 - 2,
+        0,
+        Math.PI * 2
+      );
+      ctx.fill();
+    };
+
+    const gameLoop = (timestamp: number) => {
+      update(timestamp);
+      draw();
+      requestAnimationFrame(gameLoop);
+    };
+
+    // Controles
+    const handleKeyPress = (e: KeyboardEvent) => {
+      switch (e.key) {
+        case "ArrowUp":
+          if (direction.y === 0) nextDirection = { x: 0, y: -1 };
+          break;
+        case "ArrowDown":
+          if (direction.y === 0) nextDirection = { x: 0, y: 1 };
+          break;
+        case "ArrowLeft":
+          if (direction.x === 0) nextDirection = { x: -1, y: 0 };
+          break;
+        case "ArrowRight":
+          if (direction.x === 0) nextDirection = { x: 1, y: 0 };
+          break;
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyPress);
+    requestAnimationFrame(gameLoop);
+
+    return () => {
+      window.removeEventListener("keydown", handleKeyPress);
+    };
   }, []);
 
-  const CELL_SIZE = 8;
-  
   return (
-    <section className="relative w-full py-16 px-4 md:px-8 lg:px-16 overflow-hidden bg-gradient-to-b from-transparent via-purple-900/5 to-transparent">
-      {/* Fondo con efecto snake */}
-      <div className="absolute inset-0 opacity-30 pointer-events-none">
-        <svg 
-          width="100%" 
-          height="100%" 
-          className="absolute inset-0"
-          style={{ mixBlendMode: "screen" }}
-        >
-          <defs>
-            <linearGradient id="snakeGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#6366f1" stopOpacity="0.6" />
-              <stop offset="50%" stopColor="#3b82f6" stopOpacity="0.4" />
-              <stop offset="100%" stopColor="#06b6d4" stopOpacity="0.6" />
-            </linearGradient>
-          </defs>
-
-          {/* Línea serpentina animada */}
-          {snakePath.map((point, idx) => {
-            const nextPoint = snakePath[idx + 1];
-            if (!nextPoint) return null;
-
-            return (
-              <line
-                key={idx}
-                x1={`${(point.x / GRID_SIZE) * 100}%`}
-                y1={`${(point.y / GRID_SIZE) * 100}%`}
-                x2={`${(nextPoint.x / GRID_SIZE) * 100}%`}
-                y2={`${(nextPoint.y / GRID_SIZE) * 100}%`}
-                stroke="url(#snakeGradient)"
-                strokeWidth="2"
-                opacity={0.5}
-                style={{
-                  animation: `slideSnake ${2 + (idx % 3)}s ease-in-out infinite`,
-                  animationDelay: `${idx * 0.05}s`,
-                }}
-              />
-            );
-          })}
-
-          {/* Puntos flotantes */}
-          {snakePath.slice(0, 50).map((point, idx) => (
-            <circle
-              key={`dot-${idx}`}
-              cx={`${(point.x / GRID_SIZE) * 100}%`}
-              cy={`${(point.y / GRID_SIZE) * 100}%`}
-              r="3"
-              fill="#a78bfa"
-              opacity={0.6}
-              style={{
-                animation: `float ${3 + (idx % 5)}s ease-in-out infinite`,
-                animationDelay: `${idx * 0.1}s`,
-              }}
-            />
-          ))}
-        </svg>
+    <div className="flex flex-col items-center gap-4">
+      <canvas
+        ref={canvasRef}
+        className="border-2 border-violet-500/50 rounded-lg shadow-xl"
+        style={{
+          background: "linear-gradient(135deg, rgba(15,23,42,0.9), rgba(30,41,59,0.9))",
+        }}
+      />
+      <div className="text-sm text-violet-300 font-medium">
+        ⬆️ ⬇️ ⬅️ ➡️ para controlar
       </div>
-
-      {/* Contenido con estilos globales para las animaciones */}
-      <style>{`
-        @keyframes slideSnake {
-          0%, 100% { opacity: 0.3; stroke-width: 2px; }
-          50% { opacity: 0.8; stroke-width: 3px; }
-        }
-        
-        @keyframes float {
-          0%, 100% { 
-            transform: translate(0, 0);
-            opacity: 0.4;
-          }
-          50% { 
-            transform: translate(10px, -10px);
-            opacity: 0.8;
-          }
-        }
-      `}</style>
-
-      {/* Contenedor con texto informativo */}
-      <div className="relative z-10 max-w-2xl mx-auto text-center">
-        <div className="inline-block px-4 py-2 rounded-full bg-purple-900/30 border border-purple-500/50 mb-6">
-          <span className="text-sm text-purple-300 font-medium">🐍 Efecto Visual</span>
-        </div>
-      </div>
-    </section>
+    </div>
   );
 }
