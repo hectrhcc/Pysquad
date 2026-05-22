@@ -8,6 +8,7 @@ import type { Metadata } from "next";
 import HeroSection from "@/components/home/HeroSection";
 import PillarsSection from "@/components/home/PillarsSection";
 import FeaturedEvent from "@/components/home/FeaturedEvent";
+import SnakeGame from "@/components/home/SnakeGame";
 
 export const metadata: Metadata = {
   title: "PySquad — Comunidad Tecnológica Independiente",
@@ -21,6 +22,7 @@ export default function HomePage() {
       <HeroSection />
       <PillarsSection />
       <FeaturedEvent />
+      <SnakeGame />
     </>
   );
 }
