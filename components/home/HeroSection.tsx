@@ -24,6 +24,9 @@ export default function HeroSection() {
         <div className="absolute bottom-1/4 right-1/4 w-[350px] h-[350px] rounded-full bg-violet-500/8 blur-[90px]" />
       </div>
 
+      {/* Snake Background Effect */}
+      <SnakeGame />
+
       {/* Orbs decorativos */}
       <div className="absolute top-20 right-20 w-2 h-2 rounded-full bg-violet-400 opacity-60 animate-pulse" aria-hidden="true" />
       <div className="absolute top-40 left-16 w-1.5 h-1.5 rounded-full bg-cyan-400 opacity-40 animate-pulse" style={{ animationDelay: "1s" }} aria-hidden="true" />
@@ -56,13 +59,6 @@ export default function HeroSection() {
           Aprendemos juntos, compartimos conocimiento y construimos conexiones
           reales entre profesionales y entusiastas del ecosistema tech.
         </p>
-
-        {/* Snake Game Visual */}
-        <div className="animate-fade-in-up animation-delay-250 mb-12 flex justify-center">
-          <div className="max-w-md w-full">
-            <SnakeGame />
-          </div>
-        </div>
 
         {/* CTAs */}
         <div className="animate-fade-in-up animation-delay-300 flex flex-col sm:flex-row items-center justify-center gap-4">
