@@ -104,7 +104,7 @@ export default function EventosPage() {
               </h2>
 
               {upcomingEvent ? (
-                <div className="relative rounded-2xl border border-cyan-500/20 bg-gradient-to-br from-cyan-600/10 to-violet-600/5 p-6 overflow-hidden">
+                <div className="relative rounded-2xl border border-cyan-500/20 bg-gradient-to-br from-cyan-600/10 to-blue-600/5 p-6 overflow-hidden">
                   <div className="absolute top-0 right-0 w-32 h-32 bg-cyan-500/5 rounded-full blur-2xl" />
 
                   {/* Badge */}
@@ -134,7 +134,7 @@ export default function EventosPage() {
                       </div>
                     )}
                     <div className="flex items-center gap-2 text-xs text-[#94a3b8]">
-                      <User className="h-3.5 w-3.5 text-violet-400 flex-shrink-0" />
+                      <User className="h-3.5 w-3.5 text-blue-400 flex-shrink-0" />
                       <span className="font-medium text-[#f0f4ff]">
                         {upcomingEvent.speaker}
                       </span>

@@ -32,7 +32,7 @@ export default function MemberFilter({
           value={value}
           onChange={(e) => onChange(e.target.value)}
           placeholder="Buscar por nombre o tecnología (ej: Python, React...)"
-          className="w-full rounded-xl border border-[#1e293b] bg-[#0d1117] py-3 pl-11 pr-10 text-sm text-[#f0f4ff] placeholder-[#475569] outline-none transition-colors duration-200 focus:border-violet-500/60 focus:ring-2 focus:ring-violet-500/20"
+          className="w-full rounded-xl border border-[#1e293b] bg-[#0d1117] py-3 pl-11 pr-10 text-sm text-[#f0f4ff] placeholder-[#475569] outline-none transition-colors duration-200 focus:border-blue-500/60 focus:ring-2 focus:ring-blue-500/20"
           style={{ paddingLeft: '2.75rem' }}
           aria-label="Buscar miembros"
         />
@@ -52,12 +52,12 @@ export default function MemberFilter({
         {value ? (
           <>
             Mostrando{" "}
-            <span className="text-[#a78bfa] font-medium">{filteredCount}</span>{" "}
+            <span className="text-[#60a5fa] font-medium">{filteredCount}</span>{" "}
             de {totalCount} miembros
           </>
         ) : (
           <>
-            <span className="text-[#a78bfa] font-medium">{totalCount}</span>{" "}
+            <span className="text-[#60a5fa] font-medium">{totalCount}</span>{" "}
             miembros en la comunidad
           </>
         )}

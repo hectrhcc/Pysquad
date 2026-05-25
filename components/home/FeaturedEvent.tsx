@@ -31,7 +31,7 @@ function SnakeIcon({ className }: { className?: string }) {
 
 // ─── Colores por categoría ────────────────────────────────────────────────────
 const categoryColors: Record<string, string> = {
-  AI: "bg-violet-500/15 text-violet-300 border-violet-500/30",
+  AI: "bg-blue-500/15 text-blue-300 border-blue-500/30",
   Mobile: "bg-cyan-500/12 text-cyan-300 border-cyan-500/25",
   DevOps: "bg-orange-500/12 text-orange-300 border-orange-500/25",
   Web: "bg-blue-500/12 text-blue-300 border-blue-500/25",
@@ -77,10 +77,10 @@ export default function FeaturedEvent() {
           </div>
 
           {/* Contenido del banner */}
-          <div className="relative rounded-3xl bg-[#0d1117] border border-violet-500/20 overflow-hidden">
+          <div className="relative rounded-3xl bg-[#0d1117] border border-blue-500/20 overflow-hidden">
             {/* Gradiente de fondo */}
-            <div className="absolute inset-0 bg-gradient-to-br from-violet-600/10 via-transparent to-cyan-600/8" aria-hidden="true" />
-            <div className="absolute top-0 right-0 w-64 h-64 bg-violet-500/5 rounded-full blur-3xl" aria-hidden="true" />
+            <div className="absolute inset-0 bg-gradient-to-br from-blue-600/10 via-transparent to-cyan-600/8" aria-hidden="true" />
+            <div className="absolute top-0 right-0 w-64 h-64 bg-blue-500/5 rounded-full blur-3xl" aria-hidden="true" />
             <div className="absolute bottom-0 left-0 w-64 h-64 bg-cyan-500/5 rounded-full blur-3xl" aria-hidden="true" />
 
             <div className="relative p-10 sm:p-14 lg:p-20 text-center">
@@ -118,7 +118,7 @@ export default function FeaturedEvent() {
                   {/* Metadatos */}
                   <div className="flex flex-wrap items-center justify-center gap-6 text-sm text-[#94a3b8] pt-4">
                     <div className="flex items-center gap-2.5">
-                      <CalendarDays className="h-5 w-5 text-violet-400 flex-shrink-0" />
+                      <CalendarDays className="h-5 w-5 text-blue-400 flex-shrink-0" />
                       <span>{formatDate(event.date)}</span>
                     </div>
                     {event.time && (
@@ -128,7 +128,7 @@ export default function FeaturedEvent() {
                       </div>
                     )}
                     <div className="flex items-center gap-2.5">
-                      <User className="h-5 w-5 text-violet-400 flex-shrink-0" />
+                      <User className="h-5 w-5 text-blue-400 flex-shrink-0" />
                       <span>
                         <span className="text-[#f0f4ff] font-medium text-base">
                           {event.speaker}

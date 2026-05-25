@@ -1,7 +1,7 @@
 /**
  * @file components/home/HeroSection.tsx
  * @description Sección Hero de la landing page de PySquad.
- * - Título con gradiente violeta→cyan
+ * - Título con gradiente bluea→cyan
  * - Subtítulo con propuesta de valor
  * - CTAs: "Unirse a la Comunidad" + "Ver Próximos Eventos"
  * - Fondo con grid pattern y partículas decorativas
@@ -29,23 +29,23 @@ export default function HeroSection() {
         className="absolute inset-0 pointer-events-none"
         aria-hidden="true"
       >
-        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-violet-600/10 blur-[120px]" />
+        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-blue-600/10 blur-[120px]" />
         <div className="absolute top-1/2 left-1/4 w-[400px] h-[400px] rounded-full bg-cyan-500/8 blur-[100px]" />
-        <div className="absolute bottom-1/4 right-1/4 w-[350px] h-[350px] rounded-full bg-violet-500/8 blur-[90px]" />
+        <div className="absolute bottom-1/4 right-1/4 w-[350px] h-[350px] rounded-full bg-blue-500/8 blur-[90px]" />
       </div>
 
       {/* Snake Background Effect */}
       <SnakeGame />
 
       {/* Orbs decorativos */}
-      <div className="absolute top-20 right-20 w-2 h-2 rounded-full bg-violet-400 opacity-60 animate-pulse" aria-hidden="true" />
+      <div className="absolute top-20 right-20 w-2 h-2 rounded-full bg-blue-400 opacity-60 animate-pulse" aria-hidden="true" />
       <div className="absolute top-40 left-16 w-1.5 h-1.5 rounded-full bg-cyan-400 opacity-40 animate-pulse" style={{ animationDelay: "1s" }} aria-hidden="true" />
-      <div className="absolute bottom-32 right-1/3 w-2.5 h-2.5 rounded-full bg-violet-300 opacity-30 animate-pulse" style={{ animationDelay: "2s" }} aria-hidden="true" />
+      <div className="absolute bottom-32 right-1/3 w-2.5 h-2.5 rounded-full bg-blue-300 opacity-30 animate-pulse" style={{ animationDelay: "2s" }} aria-hidden="true" />
 
       {/* Contenido principal */}
       <div className="relative z-10 mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 py-32 text-center">
         {/* Badge superior */}
-        <div className="animate-fade-in-up mb-8 inline-flex items-center gap-2 rounded-full border border-violet-500/30 bg-violet-500/10 px-4 py-1.5 text-sm text-[#a78bfa]">
+        <div className="animate-fade-in-up mb-8 inline-flex items-center gap-2 rounded-full border border-blue-500/30 bg-blue-500/10 px-4 py-1.5 text-sm text-[#60a5fa]">
           <SnakeIcon className="h-3.5 w-3.5" />
           Comunidad Tecnológica Independiente
         </div>
@@ -114,7 +114,7 @@ export default function HeroSection() {
       </div>
 
       {/* Wave bottom */}
-      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-violet-500/30 to-transparent" aria-hidden="true" />
+      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-blue-500/30 to-transparent" aria-hidden="true" />
     </section>
   );
 }

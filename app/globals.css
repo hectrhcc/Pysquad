@@ -1,7 +1,7 @@
 /**
  * @file app/globals.css
  * @description Sistema de diseño global de PySquad.
- * Paleta cyber-tech: fondo oscuro + violeta eléctrico + cyan.
+ * Paleta cyber-tech: fondo oscuro + bluea eléctrico + cyan.
  */
 
 @import "tailwindcss";
@@ -15,8 +15,8 @@
   --bg-card: #1a2035;
 
   /* Acentos primarios */
-  --accent-violet: #7c3aed;
-  --accent-violet-light: #a78bfa;
+  --accent-blue: #2563eb;
+  --accent-blue-light: #60a5fa;
   --accent-cyan: #06b6d4;
   --accent-cyan-light: #67e8f9;
 
@@ -27,15 +27,15 @@
 
   /* Bordes */
   --border-subtle: #1e293b;
-  --border-glow: rgba(124, 58, 237, 0.4);
+  --border-glow: rgba(37, 99, 235, 0.4);
 
   /* Gradientes */
-  --gradient-brand: linear-gradient(135deg, #7c3aed, #06b6d4);
+  --gradient-brand: linear-gradient(135deg, #2563eb, #06b6d4);
   --gradient-dark: linear-gradient(180deg, #080b14, #0d1117);
   --gradient-card: linear-gradient(135deg, #1a2035, #161b27);
 
   /* Sombras */
-  --shadow-glow-violet: 0 0 30px rgba(124, 58, 237, 0.25);
+  --shadow-glow-blue: 0 0 30px rgba(37, 99, 235, 0.25);
   --shadow-glow-cyan: 0 0 30px rgba(6, 182, 212, 0.25);
   --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.4);
 }
@@ -70,22 +70,22 @@ body {
   background: var(--bg-surface);
 }
 ::-webkit-scrollbar-thumb {
-  background: var(--accent-violet);
+  background: var(--accent-blue);
   border-radius: 3px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--accent-violet-light);
+  background: var(--accent-blue-light);
 }
 
 /* ─── Selección de texto ────────────────────────────────────────────────────── */
 ::selection {
-  background: rgba(124, 58, 237, 0.35);
+  background: rgba(37, 99, 235, 0.35);
   color: var(--text-primary);
 }
 
 /* ─── Foco accesible ────────────────────────────────────────────────────────── */
 :focus-visible {
-  outline: 2px solid var(--accent-violet-light);
+  outline: 2px solid var(--accent-blue-light);
   outline-offset: 2px;
   border-radius: 4px;
 }
@@ -93,8 +93,8 @@ body {
 /* ─── Grid pattern background (usado en Hero) ─────────────────────────────── */
 .bg-grid-pattern {
   background-image:
-    linear-gradient(rgba(124, 58, 237, 0.06) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(124, 58, 237, 0.06) 1px, transparent 1px);
+    linear-gradient(rgba(37, 99, 235, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(37, 99, 235, 0.06) 1px, transparent 1px);
   background-size: 50px 50px;
 }
 
@@ -107,8 +107,8 @@ body {
 }
 
 /* ─── Glow effect ───────────────────────────────────────────────────────────── */
-.glow-violet {
-  box-shadow: var(--shadow-glow-violet);
+.glow-blue {
+  box-shadow: var(--shadow-glow-blue);
 }
 .glow-cyan {
   box-shadow: var(--shadow-glow-cyan);
@@ -119,7 +119,7 @@ body {
   background: rgba(26, 32, 53, 0.7);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(124, 58, 237, 0.15);
+  border: 1px solid rgba(37, 99, 235, 0.15);
 }
 
 /* ─── Animated gradient border ─────────────────────────────────────────────── */
@@ -130,7 +130,7 @@ body {
 }
 
 .animated-border {
-  background: linear-gradient(270deg, #7c3aed, #06b6d4, #7c3aed);
+  background: linear-gradient(270deg, #2563eb, #06b6d4, #2563eb);
   background-size: 300% 300%;
   animation: border-spin 4s ease infinite;
 }
@@ -158,8 +158,8 @@ body {
 
 /* ─── Pulse glow ────────────────────────────────────────────────────────────── */
 @keyframes pulse-glow {
-  0%, 100% { box-shadow: 0 0 20px rgba(124, 58, 237, 0.3); }
-  50% { box-shadow: 0 0 40px rgba(124, 58, 237, 0.6), 0 0 60px rgba(6, 182, 212, 0.3); }
+  0%, 100% { box-shadow: 0 0 20px rgba(37, 99, 235, 0.3); }
+  50% { box-shadow: 0 0 40px rgba(37, 99, 235, 0.6), 0 0 60px rgba(6, 182, 212, 0.3); }
 }
 
 .animate-pulse-glow {
@@ -167,10 +167,10 @@ body {
 }
 
 /* ─── Tag colors (tecnologías) ──────────────────────────────────────────────── */
-.tag-violet {
-  background: rgba(124, 58, 237, 0.15);
-  color: var(--accent-violet-light);
-  border: 1px solid rgba(124, 58, 237, 0.3);
+.tag-blue {
+  background: rgba(37, 99, 235, 0.15);
+  color: var(--accent-blue-light);
+  border: 1px solid rgba(37, 99, 235, 0.3);
 }
 .tag-cyan {
   background: rgba(6, 182, 212, 0.12);

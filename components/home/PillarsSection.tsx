@@ -15,12 +15,12 @@ const pillars = [
     title: "Compartir",
     description:
       "Creemos que el conocimiento vale más cuando se comparte. Cada miembro aporta su experiencia, proyectos y aprendizajes para enriquecer a toda la comunidad.",
-    color: "violet",
-    gradient: "from-violet-600/20 to-violet-500/5",
-    iconBg: "bg-violet-500/15",
-    iconColor: "text-violet-400",
-    borderHover: "hover:border-violet-500/40",
-    glowHover: "hover:shadow-[0_0_40px_rgba(124,58,237,0.15)]",
+    color: "blue",
+    gradient: "from-blue-600/20 to-blue-500/5",
+    iconBg: "bg-blue-500/15",
+    iconColor: "text-blue-400",
+    borderHover: "hover:border-blue-500/40",
+    glowHover: "hover:shadow-[0_0_40px_rgba(37, 99, 235,0.15)]",
   },
   {
     id: "pillar-aprender",
@@ -60,7 +60,7 @@ export default function PillarsSection() {
       <div className="w-full max-w-7xl" style={{ margin: '0 auto' }}>
         {/* Encabezado */}
         <div className="mb-16 text-center">
-          <p className="mb-3 text-sm font-semibold uppercase tracking-widest text-[#7c3aed]">
+          <p className="mb-3 text-sm font-semibold uppercase tracking-widest text-[#2563eb]">
             Quiénes Somos
           </p>
           <h2

@@ -25,7 +25,7 @@ const categoryStyles: Record<
 > = {
   AI: {
     label: "AI",
-    className: "bg-violet-500/15 text-violet-300 border-violet-500/30",
+    className: "bg-blue-500/15 text-blue-300 border-blue-500/30",
   },
   Mobile: {
     label: "Mobile",
@@ -91,15 +91,15 @@ export default function EventCard({ event, index }: EventCardProps) {
     >
       {/* Timeline indicator */}
       <div className="relative flex flex-col items-center">
-        <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full border-2 border-violet-500/40 bg-[#0d1117] text-sm font-bold text-[#a78bfa] z-10 group-hover:border-violet-500 group-hover:bg-violet-500/10 transition-all duration-300">
+        <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full border-2 border-blue-500/40 bg-[#0d1117] text-sm font-bold text-[#60a5fa] z-10 group-hover:border-blue-500 group-hover:bg-blue-500/10 transition-all duration-300">
           {String(index + 1).padStart(2, "0")}
         </div>
         {/* Línea conectora (no se muestra en el último elemento) */}
-        <div className="mt-2 flex-1 w-px bg-gradient-to-b from-violet-500/30 to-transparent min-h-full" />
+        <div className="mt-2 flex-1 w-px bg-gradient-to-b from-blue-500/30 to-transparent min-h-full" />
       </div>
 
       {/* Tarjeta */}
-      <div className="flex-1 mb-10 rounded-2xl border border-[#1e293b] bg-[#0d1117] p-6 transition-all duration-300 hover:border-violet-500/25 hover:shadow-[0_0_30px_rgba(124,58,237,0.1)] hover:-translate-y-0.5">
+      <div className="flex-1 mb-10 rounded-2xl border border-[#1e293b] bg-[#0d1117] p-6 transition-all duration-300 hover:border-blue-500/25 hover:shadow-[0_0_30px_rgba(37, 99, 235,0.1)] hover:-translate-y-0.5">
         {/* Header */}
         <div className="mb-4 flex flex-wrap items-start justify-between gap-3">
           <span
@@ -132,7 +132,7 @@ export default function EventCard({ event, index }: EventCardProps) {
         {/* Metadatos */}
         <div className="mb-5 flex flex-wrap gap-4 text-xs text-[#94a3b8]">
           <div className="flex items-center gap-1.5">
-            <User className="h-3.5 w-3.5 text-violet-400" />
+            <User className="h-3.5 w-3.5 text-blue-400" />
             <span>
               <span className="text-[#f0f4ff] font-medium">{event.speaker}</span>
               {event.speakerRole && (
@@ -156,7 +156,7 @@ export default function EventCard({ event, index }: EventCardProps) {
                 href={event.slidesUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 rounded-lg border border-[#1e293b] px-3 py-1.5 text-xs font-medium text-[#94a3b8] hover:text-[#a78bfa] hover:border-violet-500/40 hover:bg-violet-500/8 transition-all duration-200"
+                className="inline-flex items-center gap-1.5 rounded-lg border border-[#1e293b] px-3 py-1.5 text-xs font-medium text-[#94a3b8] hover:text-[#60a5fa] hover:border-blue-500/40 hover:bg-blue-500/8 transition-all duration-200"
               >
                 <Presentation className="h-3.5 w-3.5" />
                 Ver Diapositivas

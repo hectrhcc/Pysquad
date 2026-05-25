@@ -32,10 +32,10 @@ export default function MiembrosPage() {
   return (
     <div className="min-h-screen pb-16" style={{ paddingTop: '100px' }}>
       {/* Hero de la sección */}
-      <div className="relative overflow-hidden bg-gradient-to-b from-violet-500/5 to-transparent border-b border-[#1e293b]">
+      <div className="relative overflow-hidden bg-gradient-to-b from-blue-500/5 to-transparent border-b border-[#1e293b]">
         <div className="absolute inset-0 bg-grid-pattern opacity-50" aria-hidden="true" />
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 relative z-10 text-center" style={{ margin: '0 auto', width: '100%', maxWidth: '1280px' }}>
-          <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-violet-500/30 bg-violet-500/10 px-4 py-1.5 text-sm text-[#a78bfa]">
+          <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-blue-500/30 bg-blue-500/10 px-4 py-1.5 text-sm text-[#60a5fa]">
             <Users className="h-3.5 w-3.5" />
             Directorio de Miembros
           </div>
@@ -83,8 +83,8 @@ export default function MiembrosPage() {
         ) : (
           /* Estado vacío */
           <div className="flex flex-col items-center justify-center py-24 text-center">
-            <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-2xl bg-violet-500/10 border border-violet-500/20">
-              <Users className="h-8 w-8 text-violet-400" />
+            <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-2xl bg-blue-500/10 border border-blue-500/20">
+              <Users className="h-8 w-8 text-blue-400" />
             </div>
             <h3 className="text-lg font-semibold text-[#f0f4ff] mb-2">
               No encontramos miembros

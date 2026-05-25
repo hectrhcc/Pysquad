@@ -83,7 +83,7 @@ export default function Footer() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-sm text-[#94a3b8] hover:text-[#a78bfa] transition-colors duration-200"
+                    className="text-sm text-[#94a3b8] hover:text-[#60a5fa] transition-colors duration-200"
                   >
                     {link.label}
                   </Link>
@@ -104,7 +104,7 @@ export default function Footer() {
                   href={href}
                   id={id}
                   aria-label={label}
-                  className="flex h-9 w-9 items-center justify-center rounded-lg border border-[#1e293b] text-[#94a3b8] hover:text-[#a78bfa] hover:border-violet-500/40 hover:bg-violet-500/10 transition-all duration-200"
+                  className="flex h-9 w-9 items-center justify-center rounded-lg border border-[#1e293b] text-[#94a3b8] hover:text-[#60a5fa] hover:border-blue-500/40 hover:bg-blue-500/10 transition-all duration-200"
                 >
                   <Icon className="h-4 w-4" />
                 </Link>
@@ -116,7 +116,7 @@ export default function Footer() {
                 href="https://github.com/hectrhcc/Pysquad"
                 target="_blank"
                 rel="noreferrer"
-                className="text-[#a78bfa] hover:text-[#c4b5fd] hover:underline"
+                className="text-[#60a5fa] hover:text-[#c4b5fd] hover:underline"
               >
                 Ver en GitHub →
               </a>
@@ -130,7 +130,7 @@ export default function Footer() {
             © {currentYear} PySquad. Todos los derechos reservados.
           </p>
           <p className="flex items-center gap-1.5 text-xs text-[#475569]">
-            Hecho con <Heart className="h-3 w-3 text-violet-400 fill-violet-400" /> por la comunidad PySquad
+            Hecho con <Heart className="h-3 w-3 text-blue-400 fill-blue-400" /> por la comunidad PySquad
           </p>
         </div>
       </div>

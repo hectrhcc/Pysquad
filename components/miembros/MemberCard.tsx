@@ -15,7 +15,7 @@ import { Member, TechTag } from "@/types";
 // ─── Colores de tags por tecnología ──────────────────────────────────────────
 const tagColorMap: Partial<Record<TechTag, string>> = {
   React: "tag-cyan",
-  "Next.js": "tag-violet",
+  "Next.js": "tag-blue",
   TypeScript: "tag-cyan",
   Python: "tag-green",
   Flutter: "tag-cyan",
@@ -26,13 +26,13 @@ const tagColorMap: Partial<Record<TechTag, string>> = {
   Go: "tag-cyan",
   Rust: "tag-orange",
   Docker: "tag-cyan",
-  Kubernetes: "tag-violet",
+  Kubernetes: "tag-blue",
   AWS: "tag-orange",
   GCP: "tag-cyan",
   Azure: "tag-cyan",
   DevOps: "tag-orange",
-  "Machine Learning": "tag-violet",
-  AI: "tag-violet",
+  "Machine Learning": "tag-blue",
+  AI: "tag-blue",
   TensorFlow: "tag-orange",
   PyTorch: "tag-orange",
   "UI/UX": "tag-pink",
@@ -46,7 +46,7 @@ const tagColorMap: Partial<Record<TechTag, string>> = {
   "REST API": "tag-green",
 };
 
-const defaultTagColor = "tag-violet";
+const defaultTagColor = "tag-blue";
 
 // ─── Props ────────────────────────────────────────────────────────────────────
 interface MemberCardProps {
@@ -57,7 +57,7 @@ interface MemberCardProps {
 export default function MemberCard({ member }: MemberCardProps) {
   return (
     <article
-      className="group relative flex flex-col rounded-2xl border border-[#1e293b] bg-[#0d1117] p-6 transition-all duration-300 hover:border-violet-500/30 hover:shadow-[0_0_40px_rgba(124,58,237,0.12)] hover:-translate-y-1"
+      className="group relative flex flex-col rounded-2xl border border-[#1e293b] bg-[#0d1117] p-6 transition-all duration-300 hover:border-blue-500/30 hover:shadow-[0_0_40px_rgba(37, 99, 235,0.12)] hover:-translate-y-1"
       aria-label={`Perfil de ${member.name}`}
     >
       {/* Badge organizador */}
@@ -72,7 +72,7 @@ export default function MemberCard({ member }: MemberCardProps) {
       <div className="mb-5 flex justify-center">
         <div className="relative">
           {/* Borde gradiente */}
-          <div className="absolute inset-0 rounded-full p-[2px] bg-gradient-to-br from-violet-500 to-cyan-400 opacity-70 group-hover:opacity-100 transition-opacity duration-300" />
+          <div className="absolute inset-0 rounded-full p-[2px] bg-gradient-to-br from-blue-500 to-cyan-400 opacity-70 group-hover:opacity-100 transition-opacity duration-300" />
           <div className="relative h-20 w-20 rounded-full overflow-hidden border-2 border-[#0d1117] bg-[#1a2035]">
             <img
               src={member.avatar}
@@ -91,7 +91,7 @@ export default function MemberCard({ member }: MemberCardProps) {
         >
           {member.name}
         </h3>
-        <p className="mt-1 text-sm text-[#7c3aed] font-medium">{member.role}</p>
+        <p className="mt-1 text-sm text-[#2563eb] font-medium">{member.role}</p>
       </div>
 
       {/* Bio */}
@@ -124,7 +124,7 @@ export default function MemberCard({ member }: MemberCardProps) {
             aria-label={`GitHub de ${member.name}`}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex h-8 w-8 items-center justify-center rounded-lg border border-[#1e293b] text-[#94a3b8] hover:text-[#f0f4ff] hover:border-violet-500/40 hover:bg-violet-500/10 transition-all duration-200"
+            className="flex h-8 w-8 items-center justify-center rounded-lg border border-[#1e293b] text-[#94a3b8] hover:text-[#f0f4ff] hover:border-blue-500/40 hover:bg-blue-500/10 transition-all duration-200"
           >
             <GitBranch className="h-3.5 w-3.5" />
           </Link>
@@ -146,7 +146,7 @@ export default function MemberCard({ member }: MemberCardProps) {
             aria-label={`Sitio web de ${member.name}`}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex h-8 w-8 items-center justify-center rounded-lg border border-[#1e293b] text-[#94a3b8] hover:text-[#f0f4ff] hover:border-violet-500/40 hover:bg-violet-500/10 transition-all duration-200"
+            className="flex h-8 w-8 items-center justify-center rounded-lg border border-[#1e293b] text-[#94a3b8] hover:text-[#f0f4ff] hover:border-blue-500/40 hover:bg-blue-500/10 transition-all duration-200"
           >
             <Globe className="h-3.5 w-3.5" />
           </Link>

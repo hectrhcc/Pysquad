@@ -88,13 +88,13 @@ export default function Header() {
                 className={cn(
                   "relative text-base font-medium rounded-lg transition-colors duration-200",
                   pathname === link.href
-                    ? "text-[#a78bfa]"
+                    ? "text-[#60a5fa]"
                     : "text-[#94a3b8] hover:text-[#f0f4ff] hover:bg-white/5"
                 )}
               >
                 {link.label}
                 {pathname === link.href && (
-                  <span className="absolute bottom-0 left-1/2 -translate-x-1/2 h-0.5 w-4/5 rounded-full bg-gradient-to-r from-violet-500 to-cyan-400" />
+                  <span className="absolute bottom-0 left-1/2 -translate-x-1/2 h-0.5 w-4/5 rounded-full bg-gradient-to-r from-blue-500 to-cyan-400" />
                 )}
               </Link>
             ))}
@@ -140,7 +140,7 @@ export default function Header() {
                 className={cn(
                   "px-4 py-3 text-sm font-medium rounded-lg transition-colors",
                   pathname === link.href
-                    ? "text-[#a78bfa] bg-violet-500/10"
+                    ? "text-[#60a5fa] bg-blue-500/10"
                     : "text-[#94a3b8] hover:text-[#f0f4ff] hover:bg-white/5"
                 )}
               >
