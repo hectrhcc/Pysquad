@@ -60,7 +60,7 @@ export default function HeroSection() {
           <br />
           <span className="text-[#f0f4ff] text-2xl sm:text-3xl lg:text-4xl">Promoviendo la experimentación y el</span>
           <br />
-          <span className="text-gradient text-3xl sm:text-4xl lg:text-5xl">conocimiento tecnológico</span>
+          <span className="text-white text-3xl sm:text-4xl lg:text-5xl">conocimiento tecnológico</span>
         </h1>
 
         {/* Subtítulo */}
@@ -75,7 +75,7 @@ export default function HeroSection() {
           <Link
             href="#"
             id="cta-unirse-hero"
-            style={{ padding: '18px 48px', background: 'linear-gradient(135deg, #3776AB, #FFD43B)', boxShadow: '0 0 30px rgba(55,118,171,0.5)' }}
+            style={{ padding: '18px 48px', backgroundColor: '#3776AB', boxShadow: '0 0 30px rgba(55,118,171,0.5)' }}
             className="group inline-flex items-center gap-2.5 rounded-xl text-lg font-semibold text-white hover:scale-105 transition-all duration-200 active:scale-95 w-full sm:w-auto justify-center hover:shadow-[0_0_45px_rgba(55,118,171,0.7)]"
           >
             <SnakeIcon className="h-5 w-5" />
@@ -96,7 +96,7 @@ export default function HeroSection() {
         {/* Estadísticas */}
         <div className="animate-fade-in-up animation-delay-400 mt-16 flex flex-wrap items-center justify-center gap-8 sm:gap-12">
           {[
-            { value: "8+", label: "Miembros" },
+            { value: "5+", label: "Miembros" },
             { value: "4", label: "Meetups" },
             { value: "∞", label: "Café ☕" },
           ].map(({ value, label }) => (
