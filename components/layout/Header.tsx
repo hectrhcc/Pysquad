@@ -13,7 +13,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Zap } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 // ─── Ícono serpiente (Python) ─────────────────────────────────────────────────
