@@ -56,7 +56,7 @@ export default function Footer() {
           {/* Branding */}
           <div className="space-y-4">
             <div className="flex items-center gap-2.5">
-              <div className="flex h-8 w-8 items-center justify-center rounded-lg" style={{ backgroundColor: '#3776AB' }}>
+              <div className="flex h-8 w-8 items-center justify-center rounded-lg" style={{ backgroundColor: '#3b82f6' }}>
                 <SnakeIcon className="h-4 w-4 text-white" />
               </div>
               <span

@@ -154,8 +154,8 @@ export default function FeaturedEvent() {
                   <Link
                     href={event.registrationUrl ?? "#"}
                     id="cta-registro-evento"
-                    style={{ padding: '18px 48px', backgroundColor: '#3776AB' }}
-                    className="group inline-flex items-center justify-center gap-3 rounded-xl text-lg font-semibold text-white shadow-[0_0_25px_rgba(55,118,171,0.4)] hover:shadow-[0_0_40px_rgba(55,118,171,0.6)] hover:scale-105 transition-all duration-200 active:scale-95 whitespace-nowrap"
+                    style={{ padding: '18px 48px', backgroundColor: '#3b82f6' }}
+                    className="group inline-flex items-center justify-center gap-3 rounded-xl text-lg font-semibold text-white shadow-[0_0_25px_rgba(59,130,246,0.4)] hover:shadow-[0_0_40px_rgba(59,130,246,0.6)] hover:scale-105 transition-all duration-200 active:scale-95 whitespace-nowrap"
                   >
                     <SnakeIcon className="h-5 w-5" />
                     Inscribirme ahora

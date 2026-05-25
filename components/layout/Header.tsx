@@ -66,7 +66,7 @@ export default function Header() {
             className="flex items-center gap-2.5 group"
             aria-label="PySquad — Ir al inicio"
           >
-            <div className="flex h-8 w-8 items-center justify-center rounded-lg shadow-[0_0_16px_rgba(55,118,171,0.5)] group-hover:shadow-[0_0_24px_rgba(55,118,171,0.7)] transition-shadow duration-300" style={{ backgroundColor: '#3776AB' }}>
+            <div className="flex h-8 w-8 items-center justify-center rounded-lg shadow-[0_0_16px_rgba(59,130,246,0.5)] group-hover:shadow-[0_0_24px_rgba(59,130,246,0.7)] transition-shadow duration-300" style={{ backgroundColor: '#3b82f6' }}>
               <SnakeIcon className="h-4 w-4 text-white" />
             </div>
             <span
@@ -105,8 +105,8 @@ export default function Header() {
             <Link
               href="#"
               id="cta-unirse-header"
-              style={{ padding: '12px 32px', backgroundColor: '#3776AB', boxShadow: '0 0 20px rgba(55,118,171,0.35)' }}
-              className="inline-flex items-center gap-2 rounded-lg text-sm font-semibold text-white hover:shadow-[0_0_30px_rgba(55,118,171,0.55)] hover:scale-105 transition-all duration-200 active:scale-95"
+              style={{ padding: '12px 32px', backgroundColor: '#3b82f6', boxShadow: '0 0 20px rgba(59,130,246,0.35)' }}
+              className="inline-flex items-center gap-2 rounded-lg text-sm font-semibold text-white hover:shadow-[0_0_30px_rgba(59,130,246,0.55)] hover:scale-105 transition-all duration-200 active:scale-95"
             >
               <SnakeIcon className="h-3.5 w-3.5" />
               Únete
@@ -151,7 +151,7 @@ export default function Header() {
               href="#"
               id="cta-unirse-mobile"
               onClick={() => setIsOpen(false)}
-              style={{ padding: '16px 24px', backgroundColor: '#3776AB' }}
+              style={{ padding: '16px 24px', backgroundColor: '#3b82f6' }}
               className="mt-4 flex items-center justify-center gap-2 rounded-lg text-base font-semibold text-white"
             >
               <SnakeIcon className="h-3.5 w-3.5" />
