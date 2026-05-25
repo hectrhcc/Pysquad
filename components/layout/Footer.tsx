@@ -54,7 +54,7 @@ export default function Footer() {
                 style={{ fontFamily: "var(--font-space-grotesk)" }}
               >
                 <span className="text-blue-500">Py</span>
-                <span className="text-[#f0f4ff]">Squad</span>
+                <span style={{ color: '#FFD43B' }}>Squad</span>
               </span>
             </div>
             <p className="text-sm text-[#94a3b8] leading-relaxed max-w-xs">

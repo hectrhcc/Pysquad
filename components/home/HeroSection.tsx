@@ -8,8 +8,18 @@
  */
 
 import Link from "next/link";
-import { ArrowRight, CalendarDays, Zap } from "lucide-react";
+import { ArrowRight, CalendarDays } from "lucide-react";
 import SnakeGame from "./SnakeGame";
+
+// Ícono serpiente SVG (Python logo snake)
+function SnakeIcon({ className }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+      <path d="M12 2C9.5 2 7.5 3.5 7.5 5.5V8H12V9H5.5C3.5 9 2 11 2 13.5C2 16 3.5 18 5.5 18H7V16H5.5C4.7 16 4 15.3 4 13.5C4 11.7 4.7 11 5.5 11H12C14.5 11 16.5 9.5 16.5 7.5V5.5C16.5 3.5 14.5 2 12 2ZM9.5 5.5C10.1 5.5 10.5 5.9 10.5 6.5C10.5 7.1 10.1 7.5 9.5 7.5C8.9 7.5 8.5 7.1 8.5 6.5C8.5 5.9 8.9 5.5 9.5 5.5Z" />
+      <path d="M12 15H18.5C20.5 15 22 13 22 10.5C22 8 20.5 6 18.5 6H17V8H18.5C19.3 8 20 8.7 20 10.5C20 12.3 19.3 13 18.5 13H12C9.5 13 7.5 14.5 7.5 16.5V18.5C7.5 20.5 9.5 22 12 22C14.5 22 16.5 20.5 16.5 18.5V16H12V15ZM14.5 18.5C14.5 19.1 14.1 19.5 13.5 19.5C12.9 19.5 12.5 19.1 12.5 18.5C12.5 17.9 12.9 17.5 13.5 17.5C14.1 17.5 14.5 17.9 14.5 18.5Z" />
+    </svg>
+  );
+}
 
 export default function HeroSection() {
   return (
@@ -36,7 +46,7 @@ export default function HeroSection() {
       <div className="relative z-10 mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 py-32 text-center">
         {/* Badge superior */}
         <div className="animate-fade-in-up mb-8 inline-flex items-center gap-2 rounded-full border border-violet-500/30 bg-violet-500/10 px-4 py-1.5 text-sm text-[#a78bfa]">
-          <Zap className="h-3.5 w-3.5 fill-[#a78bfa]" />
+          <SnakeIcon className="h-3.5 w-3.5" />
           Comunidad Tecnológica Independiente
         </div>
 
@@ -46,7 +56,7 @@ export default function HeroSection() {
           style={{ fontFamily: "var(--font-space-grotesk)" }}
         >
           <span className="text-blue-500 text-6xl sm:text-7xl lg:text-8xl">Py</span>
-          <span className="text-white text-6xl sm:text-7xl lg:text-8xl">Squad</span>
+          <span style={{ color: '#FFD43B' }} className="text-6xl sm:text-7xl lg:text-8xl">Squad</span>
           <br />
           <span className="text-[#f0f4ff] text-2xl sm:text-3xl lg:text-4xl">Promoviendo la experimentación y el</span>
           <br />
@@ -65,18 +75,18 @@ export default function HeroSection() {
           <Link
             href="#"
             id="cta-unirse-hero"
-            style={{ padding: '18px 48px' }}
-            className="group inline-flex items-center gap-2.5 rounded-xl bg-gradient-to-r from-violet-600 to-cyan-500 text-lg font-semibold text-white shadow-[0_0_30px_rgba(124,58,237,0.4)] hover:shadow-[0_0_45px_rgba(124,58,237,0.6)] hover:scale-105 transition-all duration-200 active:scale-95 w-full sm:w-auto justify-center"
+            style={{ padding: '18px 48px', background: 'linear-gradient(135deg, #3776AB, #FFD43B)', boxShadow: '0 0 30px rgba(55,118,171,0.5)' }}
+            className="group inline-flex items-center gap-2.5 rounded-xl text-lg font-semibold text-white hover:scale-105 transition-all duration-200 active:scale-95 w-full sm:w-auto justify-center hover:shadow-[0_0_45px_rgba(55,118,171,0.7)]"
           >
-            <Zap className="h-4 w-4" />
+            <SnakeIcon className="h-5 w-5" />
             Unirse a la Comunidad
             <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
           </Link>
           <Link
             href="/eventos"
             id="cta-ver-eventos-hero"
-            style={{ padding: '18px 48px' }}
-            className="group inline-flex items-center gap-2.5 rounded-xl border border-[#1e293b] bg-white/5 text-lg font-semibold text-[#f0f4ff] hover:bg-white/10 hover:border-violet-500/40 transition-all duration-200 w-full sm:w-auto justify-center"
+            style={{ padding: '18px 48px', borderColor: '#3776AB55' }}
+            className="group inline-flex items-center gap-2.5 rounded-xl border bg-white/5 text-lg font-semibold text-[#f0f4ff] hover:bg-[#3776AB]/10 hover:border-[#3776AB]/60 transition-all duration-200 w-full sm:w-auto justify-center"
           >
             <CalendarDays className="h-4 w-4 text-[#94a3b8]" />
             Ver Próximos Eventos

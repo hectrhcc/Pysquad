@@ -50,6 +50,7 @@ html {
   scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
 }
 
 body {
@@ -58,6 +59,7 @@ body {
   font-family: var(--font-inter), "Inter", system-ui, sans-serif;
   line-height: 1.6;
   min-height: 100vh;
+  overflow-x: hidden;
 }
 
 /* ─── Scrollbar personalizada ──────────────────────────────────────────────── */

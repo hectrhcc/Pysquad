@@ -13,8 +13,18 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
-import { Menu, X, Zap } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
+
+// ─── Ícono serpiente (Python) ─────────────────────────────────────────────────
+function SnakeIcon({ className }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+      <path d="M12 2C9.5 2 7.5 3.5 7.5 5.5V8H12V9H5.5C3.5 9 2 11 2 13.5C2 16 3.5 18 5.5 18H7V16H5.5C4.7 16 4 15.3 4 13.5C4 11.7 4.7 11 5.5 11H12C14.5 11 16.5 9.5 16.5 7.5V5.5C16.5 3.5 14.5 2 12 2ZM9.5 5.5C10.1 5.5 10.5 5.9 10.5 6.5C10.5 7.1 10.1 7.5 9.5 7.5C8.9 7.5 8.5 7.1 8.5 6.5C8.5 5.9 8.9 5.5 9.5 5.5Z" />
+      <path d="M12 15H18.5C20.5 15 22 13 22 10.5C22 8 20.5 6 18.5 6H17V8H18.5C19.3 8 20 8.7 20 10.5C20 12.3 19.3 13 18.5 13H12C9.5 13 7.5 14.5 7.5 16.5V18.5C7.5 20.5 9.5 22 12 22C14.5 22 16.5 20.5 16.5 18.5V16H12V15ZM14.5 18.5C14.5 19.1 14.1 19.5 13.5 19.5C12.9 19.5 12.5 19.1 12.5 18.5C12.5 17.9 12.9 17.5 13.5 17.5C14.1 17.5 14.5 17.9 14.5 18.5Z" />
+    </svg>
+  );
+}
 
 // ─── Navegación ───────────────────────────────────────────────────────────────
 const navLinks = [
@@ -64,7 +74,7 @@ export default function Header() {
               style={{ fontFamily: "var(--font-space-grotesk)" }}
             >
               <span className="text-blue-500">Py</span>
-              <span className="text-[#f0f4ff]">Squad</span>
+              <span style={{ color: '#FFD43B' }}>Squad</span>
             </span>
           </Link>
 
@@ -95,10 +105,10 @@ export default function Header() {
             <Link
               href="#"
               id="cta-unirse-header"
-              style={{ padding: '12px 32px' }}
-              className="inline-flex items-center gap-2 rounded-lg bg-gradient-to-r from-violet-600 to-cyan-500 text-sm font-semibold text-white shadow-[0_0_20px_rgba(124,58,237,0.35)] hover:shadow-[0_0_30px_rgba(124,58,237,0.55)] hover:scale-105 transition-all duration-200 active:scale-95"
+              style={{ padding: '12px 32px', background: 'linear-gradient(135deg, #3776AB, #FFD43B)', boxShadow: '0 0 20px rgba(55,118,171,0.35)' }}
+              className="inline-flex items-center gap-2 rounded-lg text-sm font-semibold text-white hover:shadow-[0_0_30px_rgba(55,118,171,0.55)] hover:scale-105 transition-all duration-200 active:scale-95"
             >
-              <Zap className="h-3.5 w-3.5" />
+              <SnakeIcon className="h-3.5 w-3.5" />
               Únete
             </Link>
           </div>
@@ -141,10 +151,10 @@ export default function Header() {
               href="#"
               id="cta-unirse-mobile"
               onClick={() => setIsOpen(false)}
-              style={{ padding: '16px 24px' }}
-              className="mt-4 flex items-center justify-center gap-2 rounded-lg bg-gradient-to-r from-violet-600 to-cyan-500 text-base font-semibold text-white"
+              style={{ padding: '16px 24px', background: 'linear-gradient(135deg, #3776AB, #FFD43B)' }}
+              className="mt-4 flex items-center justify-center gap-2 rounded-lg text-base font-semibold text-white"
             >
-              <Zap className="h-3.5 w-3.5" />
+              <SnakeIcon className="h-3.5 w-3.5" />
               Únete a la Comunidad
             </Link>
           </div>
