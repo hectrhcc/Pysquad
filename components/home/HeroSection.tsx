@@ -75,8 +75,8 @@ export default function HeroSection() {
           <Link
             href="#"
             id="cta-unirse-hero"
-            style={{ padding: '18px 48px', backgroundColor: '#3b82f6', boxShadow: '0 0 30px rgba(59,130,246,0.5)' }}
-            className="group inline-flex items-center gap-2.5 rounded-xl text-lg font-semibold text-white hover:scale-105 transition-all duration-200 active:scale-95 w-full sm:w-auto justify-center hover:shadow-[0_0_45px_rgba(59,130,246,0.7)]"
+            style={{ padding: '18px 48px', backgroundColor: '#3b82f6' }}
+            className="group inline-flex items-center gap-2.5 rounded-xl text-lg font-semibold text-white shadow-[0_0_30px_rgba(59,130,246,0.5)] hover:scale-105 transition-all duration-200 active:scale-95 w-full sm:w-auto justify-center hover:shadow-[0_0_45px_rgba(59,130,246,0.7)]"
           >
             <SnakeIcon className="h-5 w-5" />
             Unirse a la Comunidad

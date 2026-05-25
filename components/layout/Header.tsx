@@ -105,8 +105,8 @@ export default function Header() {
             <Link
               href="#"
               id="cta-unirse-header"
-              style={{ padding: '12px 32px', backgroundColor: '#3b82f6', boxShadow: '0 0 20px rgba(59,130,246,0.35)' }}
-              className="inline-flex items-center gap-2 rounded-lg text-sm font-semibold text-white hover:shadow-[0_0_30px_rgba(59,130,246,0.55)] hover:scale-105 transition-all duration-200 active:scale-95"
+              style={{ padding: '12px 32px', backgroundColor: '#3b82f6' }}
+              className="inline-flex items-center gap-2 rounded-lg text-sm font-semibold text-white shadow-[0_0_20px_rgba(59,130,246,0.35)] hover:shadow-[0_0_30px_rgba(59,130,246,0.55)] hover:scale-105 transition-all duration-200 active:scale-95"
             >
               <SnakeIcon className="h-3.5 w-3.5" />
               Únete
